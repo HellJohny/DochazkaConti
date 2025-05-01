@@ -236,9 +236,11 @@
       <label>Čas příchodu:
         <input type="time" id="prichod2" required>
       </label>
-      <label>Čas odchodu:
-        <input type="time" id="odchod2" required>
-      </label>
+      <label>Čas odchodu:</label>
+      <div style="display: flex; gap: 5px; align-items: center;">
+        <input type="time" id="odchod2" required style="flex: 1;">
+        <button type="button" onclick="nastavAktualniCas()" title="Nastavit aktuální čas" style="border: none; background: none; font-size: 36px; cursor: pointer; width: 32px; height: 32px; margin-top: -36px; margin-left: -16px; outline: none; box-shadow: none;">🕒</button>
+      </div>
       <button onclick="spocitejOdpracovano()">Spočítej odpracovaný čas</button>
       <div id="vysledek2"></div>
       <div class="history">
@@ -261,6 +263,13 @@
       const sign = minuty < 0 ? "-" : "";
       return sign + String(hod).padStart(2, '0') + ':' + String(min).padStart(2, '0');
     }
+
+    function nastavAktualniCas() {
+      const ted = new Date();
+      const hodiny = String(ted.getHours()).padStart(2, '0');
+      const minuty = String(ted.getMinutes()).padStart(2, '0');
+  document.getElementById('odchod2').value = `${hodiny}:${minuty}`;
+}
 
     function spocitej() {
       const prichod = document.getElementById('prichod').value;
