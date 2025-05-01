@@ -133,7 +133,7 @@
       font-size: 14px;
     }
 
-    body.dark-mode .history-list {
+    body.dark-mode .history-list {@
       background: #1e1e1e;
     }
 
@@ -165,24 +165,28 @@
       background-color: #264d26;
     }
 
-    /* Zde přidej tento CSS kód pro responzivní design */
     @media (max-width: 768px) {
       .container {
         flex-direction: column;
         align-items: center;
+        gap: 20px;
       }
 
       .calculator {
-        width: 100%;
+        width: 100%; /* Zajistí, že calculator bude mít celou šířku */
+        margin: 0;
       }
 
       button {
-        width: 100%;
+        width: 100%; /* Tlačítko bude mít plnou šířku */
+      .container {
+        flex-direction: column; /* Všechny kalkulačky pod sebou na mobilu */
       }
 
       .top-bar {
         flex-direction: column;
         align-items: center;
+        margin-bottom: 20px;
       }
 
       .history-list {
@@ -196,6 +200,8 @@
     }
   </style>
 </head>
+<body>
+
   <div class="top-bar">
     <h2>Docházková kalkulačka 👋</h2>
     <button id="toggleDarkMode">🌙 Dark mode</button>
